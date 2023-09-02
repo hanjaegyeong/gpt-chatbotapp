@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.Gravity
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
         if (messageText.isNotEmpty()) {
             // 사용자가 보낸 메시지는 오른쪽 정렬 및 오른쪽 말풍선
-            displayMessage(messageText, Gravity.END, R.drawable.user_bubble)
+            displayMessage(messageText, Gravity.END, R.drawable.bubble)
 
             // 상대방의 응답은 좌측 정렬 및 좌측 말풍선
             val responseText = if (messageText.toLowerCase() == "hello") {
@@ -43,7 +44,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 "no"
             }
-            displayMessage(responseText, Gravity.START, R.drawable.opponent_bubble)
+            displayMessage(responseText, Gravity.START, R.drawable.bubble)
 
             // EditText 비우기
             messageEditText.text.clear()
@@ -57,6 +58,25 @@ class MainActivity : AppCompatActivity() {
         messageView.gravity = gravity // 정렬 설정
         messageView.setBackgroundResource(backgroundDrawable) // 말풍선 배경 설정
 
+        val textSizeInSp = 18 // 글자크기
+        messageView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSizeInSp.toFloat())
+
+        val horizontalPaddingInDp = 8 // 말풍선 내부 좌우 여백
+        messageView.setPadding(
+            dpToPx(horizontalPaddingInDp),
+            0,
+            dpToPx(horizontalPaddingInDp),
+            0
+        )
+
+        val verticalPaddingInDp = 3 // 상단 및 하단 패딩 크기 설정 (예: 8dp)
+        messageView.setPadding(
+            messageView.paddingLeft,
+            dpToPx(verticalPaddingInDp), // 상단 패딩 설정
+            messageView.paddingRight,
+            dpToPx(verticalPaddingInDp) // 하단 패딩 설정
+        )
+
         // 메시지를 채팅 레이아웃에 추가
         val layoutParams = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.WRAP_CONTENT,
@@ -67,5 +87,11 @@ class MainActivity : AppCompatActivity() {
         messageView.layoutParams = layoutParams
         chatLayout.addView(messageView)
     }
+
+    private fun dpToPx(dp: Int): Int {
+        val scale = resources.displayMetrics.density
+        return (dp * scale + 0.5f).toInt()
+    }
+
 }
 
