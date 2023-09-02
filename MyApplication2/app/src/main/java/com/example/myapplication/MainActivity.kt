@@ -55,8 +55,9 @@ class MainActivity : AppCompatActivity() {
         // 새로운 TextView를 생성하고 메시지 표시
         val messageView = TextView(this)
         messageView.text = message
-        messageView.gravity = gravity // 정렬 설정
+        messageView.gravity = Gravity.START
         messageView.setBackgroundResource(backgroundDrawable) // 말풍선 배경 설정
+
 
         val textSizeInSp = 18 // 글자크기
         messageView.setTextSize(TypedValue.COMPLEX_UNIT_SP, textSizeInSp.toFloat())
