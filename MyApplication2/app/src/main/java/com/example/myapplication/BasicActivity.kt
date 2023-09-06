@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class BasicActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var messageEditText: EditText
