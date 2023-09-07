@@ -18,16 +18,19 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         button1.setOnClickListener {
             val intent = Intent(requireActivity(), GptActivity::class.java)
+            intent.putExtra("prompt", "bye") // "prompt" 키에 값을 전달
             startActivity(intent)
         }
 
         button2.setOnClickListener {
             val intent = Intent(requireActivity(), GptActivity::class.java)
+            intent.putExtra("prompt", "hello") // "prompt" 키에 값을 전달
             startActivity(intent)
         }
 
         button3.setOnClickListener {
             val intent = Intent(requireActivity(), GptActivity::class.java)
+            intent.putExtra("prompt", "Hello from button 3") // "prompt" 키에 값을 전달
             startActivity(intent)
         }
     }

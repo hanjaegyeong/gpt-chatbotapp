@@ -35,10 +35,13 @@ class GptActivity : AppCompatActivity() {
     private val client = OkHttpClient()
 
     private val MY_SECRET_KEY = BuildConfig.GPT_KEY
+    private lateinit var prompt: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gpt)
+
+        prompt = intent.getStringExtra("prompt") ?: ""
 
         Log.d("hjg", MY_SECRET_KEY)
 
@@ -84,7 +87,7 @@ class GptActivity : AppCompatActivity() {
         val jsonObject = JSONObject()
         try {
             jsonObject.put("model", "text-davinci-003")
-            jsonObject.put("prompt", question)
+            jsonObject.put("prompt", prompt + question)
             jsonObject.put("max_tokens", 4000)
             jsonObject.put("temperature", 0)
         } catch (e: JSONException) {
