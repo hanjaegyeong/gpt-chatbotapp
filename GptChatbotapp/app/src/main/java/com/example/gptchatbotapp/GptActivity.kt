@@ -1,7 +1,9 @@
 package com.example.gptchatbotapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
@@ -10,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.gptchatbotapp.ui.home.HomeFragment
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -40,6 +43,9 @@ class GptActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gpt)
+
+        // 뒤로가기 버튼 활성화
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         prompt = intent.getStringExtra("prompt") ?: ""
 
@@ -122,4 +128,19 @@ class GptActivity : AppCompatActivity() {
             }
         })
     }
+    
+    // 뒤로가기
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                // 뒤로가기 버튼이 클릭되었을 때 HomeActivity로 이동
+                val intent = Intent(this, HomeActivity::class.java)
+                startActivity(intent)
+                finish() // 현재 액티비티 종료
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
