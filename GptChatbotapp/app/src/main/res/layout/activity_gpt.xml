@@ -5,49 +5,54 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GptActivity">
-    <androidx.recyclerview.widget.RecyclerView
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_layout" />
+
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_above="@+id/bottom_layout"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/bottom_layout" />
 
     <TextView
+        android:id="@+id/tv_welcome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_welcome"
         android:layout_centerInParent="true"
-        android:text="Welcome"
         android:gravity="center"
-        android:textSize="28sp"
-        />
+        android:text="Welcome"
+        android:textSize="28sp" />
 
     <RelativeLayout
+        android:id="@+id/bottom_layout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true"
-        android:padding="8dp"
-        android:id="@+id/bottom_layout">
+        android:padding="8dp">
 
         <EditText
+            android:id="@+id/et_msg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_msg"
             android:layout_centerInParent="true"
             android:hint="Write here"
             android:padding="16dp"
-            android:layout_toLeftOf="@+id/btn_send"/>
+            android:layout_toLeftOf="@+id/btn_send" />
 
         <ImageButton
+            android:id="@+id/btn_send"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:id="@+id/btn_send"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
             android:layout_marginStart="10dp"
             android:padding="8dp"
             android:src="@drawable/ic_send"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            />
+            android:background="?attr/selectableItemBackgroundBorderless" />
 
     </RelativeLayout>
 
