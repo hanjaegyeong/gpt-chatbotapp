@@ -126,13 +126,15 @@ class GptActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                // 뒤로가기 버튼이 클릭되었을 때 현재 Activity를 종료
-                finish()
 
                 // HomeFragment로 이동
                 val fragmentManager = supportFragmentManager
                 val transaction = fragmentManager.beginTransaction()
                 transaction.replace(R.id.fragment_container, HomeFragment())
+
+                // 뒤로가기 버튼이 클릭되었을 때 현재 Activity를 종료
+                finish()
+
                 transaction.addToBackStack(null)
                 transaction.commit()
                 return true
