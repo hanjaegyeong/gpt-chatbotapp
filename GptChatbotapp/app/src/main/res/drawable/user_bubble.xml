@@ -1,0 +1,23 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 말풍선의 외곽선 -->
+    <item>
+        <shape
+            android:shape="rectangle">
+            <solid android:color="#9073C3" /> <!-- 연보라색으로 설정 (#9C27B0) -->
+            <corners android:radius="10dp" />
+            <padding
+                android:left="3dp"
+                android:right="3dp"
+                android:top="3dp"
+                android:bottom="3dp" /> <!-- 외곽선 크기를 조절합니다 -->
+        </shape>
+    </item>
+    <!-- 말풍선 내부의 색상 -->
+    <item>
+        <shape
+            android:shape="rectangle">
+            <solid android:color="#FFFFFF" />
+            <corners android:radius="7dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -17,6 +17,11 @@
             android:id="@+id/left_chat_tv"
             android:textColor="@android:color/black"
             android:textSize="18sp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/user_bubble"
             android:text="Hello World"/>
 
     </LinearLayout>
@@ -35,6 +40,11 @@
             android:id="@+id/right_chat_tv"
             android:textColor="@android:color/black"
             android:textSize="18sp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:background="@drawable/user_bubble"
             android:text="Hello World"/>
 
     </LinearLayout>
