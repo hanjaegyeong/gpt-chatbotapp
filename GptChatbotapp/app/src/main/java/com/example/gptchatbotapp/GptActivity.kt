@@ -87,7 +87,7 @@ class GptActivity : AppCompatActivity() {
         val jsonObject = JSONObject()
         try {
             jsonObject.put("model", "text-davinci-003")
-            jsonObject.put("prompt", prompt + question + "너는 \"예\", \"아니오\", \"정답입니다.\", \"제대로 된 질문을 해주십시오\"만 말할 수 있다.")
+            jsonObject.put("prompt", prompt + question + "이제 이 질문에 \"예\", \"아니오\", \"정답입니다.\", \"제대로 된 질문을 해주십시오\"로만 답해줘.")
             jsonObject.put("max_tokens", 50)
             jsonObject.put("temperature", 0)
         } catch (e: JSONException) {
