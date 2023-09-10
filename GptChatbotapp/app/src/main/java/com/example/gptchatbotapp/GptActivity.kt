@@ -87,9 +87,8 @@ class GptActivity : AppCompatActivity() {
         val jsonObject = JSONObject()
         try {
             jsonObject.put("model", "text-davinci-003")
-            jsonObject.put("prompt", prompt + question)
-            // openApi에서 max_token 권장량은 4096 이하
-            jsonObject.put("max_tokens", 4040)
+            jsonObject.put("prompt", prompt + question + "너는 \"예\", \"아니오\", \"정답입니다.\", \"제대로 된 질문을 해주십시오\"만 말할 수 있다.")
+            jsonObject.put("max_tokens", 50)
             jsonObject.put("temperature", 0)
         } catch (e: JSONException) {
             e.printStackTrace()
