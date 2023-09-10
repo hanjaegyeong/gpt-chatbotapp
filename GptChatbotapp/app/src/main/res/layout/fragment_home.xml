@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginBottom="5dp"
+            android:layout_marginTop="20dp"
             android:text="Go to Activity 1" />
 
         <!-- 두 번째 버튼 -->
